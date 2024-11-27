@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App>div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.App div>div {
+  background-color: #f3ce60;
+  width: 200px;
+  height: 250px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.App div img {
+  width: 80%;
+}
