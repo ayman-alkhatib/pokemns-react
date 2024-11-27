@@ -9,7 +9,7 @@ function App() {
   const [pokemonName, setPokemonName] = useContext(GlobalContext);
   return (
     <div className="App">
-      <ContextProvider pokemonName>
+      <ContextProvider >
         <RouterProvider router={router} />
       </ContextProvider>
     </div>
