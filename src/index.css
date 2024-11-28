@@ -7,19 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
-.App>div {
+.App .pokemon-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  padding: 50px;
   gap: 50px;
+  min-height: 100vb;
+  background-image: url("./media/image.png");
 }
 
-.App div>div {
-  background-color: #f3ce60;
+.App div .pokemon-card {
+  filter: blur(0px);
+  background-color: #f4ac1c;
   width: 200px;
   height: 250px;
   border-radius: 30px;
@@ -27,12 +29,67 @@ code {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
+  cursor: pointer;
 }
 
 .App div img {
   width: 80%;
+}
+
+.App nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4ac1c;
+  padding: 0 100px;
+
+}
+
+.App .logo {
+  width: 250px;
+}
+
+.App .logo img {
+  max-width: 100%;
+}
+
+.App nav ul {
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  list-style: none;
+}
+
+.App nav ul li {
+  padding: 30px;
+  background-image: url("./media/image.png");
+  border-radius: 25px;
+}
+
+.App nav ul li a {
+  color: #f4ac1c;
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* details page style */
+.pokemon-details {
+  background-color: red;
+  display: flex;
+
+}
+
+.pokemon-details .details {
+  flex: 1;
+}
+
+.pokemon-details .image {
+  flex: 1;
+}
+
+.pokemon-details .image img {
+  max-width: 100%;
 }
