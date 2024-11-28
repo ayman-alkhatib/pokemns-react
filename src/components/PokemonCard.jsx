@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { GlobalContext } from "../ContextProvider";
+
+export const globalObject = { pokemonName: "" };
+
 function PokemonCard({ name, img }) {
   const navigate = useNavigate();
 
-  const { pokemonName, setPokemonName } = useContext(GlobalContext);
-
   function handleClick() {
-    setPokemonName(name);
+    globalObject.pokemonName = name;
     navigate(`/details/${name}`);
   }
   return (

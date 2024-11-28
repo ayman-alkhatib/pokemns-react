@@ -5,7 +5,7 @@ export default async function fetchPokemons() {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`)
         const jsonResult = await res.json()
 
-        const pokemonobj = { name: jsonResult.name, img: jsonResult.sprites.front_shiny, height: jsonResult.height, weight: jsonResult.weight, exp: jsonResult.base_experience }
+        const pokemonobj = { name: jsonResult.name, img: jsonResult.sprites.front_shiny }
         data.push(pokemonobj)
     }
     return data
