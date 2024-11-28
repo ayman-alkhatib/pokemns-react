@@ -7,10 +7,13 @@ import Nav from "./components/Nav";
 
 
 export const router = createBrowserRouter(
+
+
     createRoutesFromElements(
         <Route path="/" element={<Nav />}>
             <Route path="pokemon" element={<PokemonsListPage />} loader={fetchPokemons} />
-            <Route path="details/*" element={<PokemonDetailsPage />} loader={() => fetchPokemonDetails()} />
+            <Route path="details/:name" element={<PokemonDetailsPage />} loader={({ params }) => fetchPokemonDetails(params.name)} />
         </Route>
     )
 )
+
