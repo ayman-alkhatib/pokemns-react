@@ -17,10 +17,13 @@ const Layout = () => {
 };
 
 export const router = createBrowserRouter(
+
+
     createRoutesFromElements(
         <Route path="/" element={<Layout />}>
             <Route path="pokemon" element={<PokemonsListPage />} loader={fetchPokemons} />
-            <Route path="details/*" element={<PokemonDetailsPage />} loader={() => fetchPokemonDetails()} />
+            <Route path="details/:name" element={<PokemonDetailsPage />} loader={({ params }) => fetchPokemonDetails(params.name)} />
         </Route>
     )
 )
+
