@@ -10,7 +10,7 @@ function PokemonCard({ name, img }) {
     navigate(`/details/${name}`);
   }
   return (
-    <div onClick={handleClick}>
+    <div onClick={handleClick} className="pokemon-card">
       <img src={img} alt={name} />
       <h2>{name}</h2>
     </div>

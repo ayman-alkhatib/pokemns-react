@@ -8,7 +8,7 @@ function PokemonsListPage() {
   if (navigation.state === "loading") return <h1>Loading!</h1>;
 
   return (
-    <>
+    <div className="pokemon-list">
       {data.map((pokemon) => {
         return (
           <PokemonCard
@@ -18,7 +18,7 @@ function PokemonsListPage() {
           />
         );
       })}
-    </>
+    </div>
   );
 }
 
