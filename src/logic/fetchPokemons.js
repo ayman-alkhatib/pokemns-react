@@ -1,7 +1,7 @@
 const data = []
 export default async function fetchPokemons() {
-    if (data.length === 20) return data
-    for (let i = 0; i < 20; i++) {
+    if (data.length === 21) return data
+    for (let i = 0; i < 21; i++) {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`)
         const jsonResult = await res.json()
 
