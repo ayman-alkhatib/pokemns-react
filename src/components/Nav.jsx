@@ -5,7 +5,7 @@ function Nav() {
     <>
       <nav>
         <div className="logo">
-          <img src="logo.png" alt="" />
+          <img src="https://i.postimg.cc/ZngPsmf6/logo.png" alt="" />
         </div>
         <ul>
           <li>
