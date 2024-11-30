@@ -1,45 +1,22 @@
-const data = []
+let data = []
+if (localStorage.getItem("pokemonsListData")) {
+    data = JSON.parse(localStorage.getItem("pokemonsListData"))
+}
+export { data }
+
 export default async function fetchPokemons() {
-    if (data.length === 21) return data
-    for (let i = 0; i < 21; i++) {
+    if (localStorage.getItem("pokemonsListData")) {
+        data = JSON.parse(localStorage.getItem("pokemonsListData"))
+        return data
+    }
+
+    for (let i = 0; i < 200; i++) {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`)
         const jsonResult = await res.json()
 
-        const pokemonobj = { name: jsonResult.name, img: jsonResult.sprites.front_shiny }
+        const pokemonobj = { name: jsonResult.name, img: jsonResult.sprites.other.dream_world.front_default }
         data.push(pokemonobj)
     }
+    localStorage.setItem("pokemonsListData", JSON.stringify(data))
     return data
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// GET https://pokeapi.co/api/v2/pokemon/{id or name}
-// console.log(data.sprites.front_shiny)
-// console.log(data.name)
-// console.log(data.height)
-// console.log(data.weight)
-// console.log(data.base_experience)
-
-// export const dataLoader = async () => {
-//     const res = await fetch('https://pokeapi.co/api/v2/pokemon/1')
-//     const jsonResult = await res.json()
-//     console.log(jsonResult)
-//     return jsonResult
-// }
