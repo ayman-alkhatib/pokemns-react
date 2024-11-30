@@ -3,11 +3,12 @@ import { typesColors } from "../typesColors";
 import ProgressBar from "../components/ProgressBar";
 import { data } from "../logic/fetchPokemons";
 import PokemonCard from "../components/PokemonCard";
+import Loading from "../components/Loading";
 function PokemonDetailsPage() {
   const detailsData = useLoaderData();
   const navigation = useNavigation();
 
-  if (navigation.state === "loading") return <h1>Loading!</h1>;
+  if (navigation.state === "loading") return <Loading />;
   return (
     <>
       <div
