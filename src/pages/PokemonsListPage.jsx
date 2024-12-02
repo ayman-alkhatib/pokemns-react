@@ -1,6 +1,7 @@
 import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import PokemonCard from "../components/PokemonCard.jsx";
 import Loading from "../components/Loading.jsx";
+import { routes } from "../router.js";
 
 function PokemonsListPage() {
   const data = useLoaderData();
@@ -14,7 +15,7 @@ function PokemonsListPage() {
         return (
           <PokemonCard
             clickFn={(name) => {
-              navigate(`/details/${pokemon.name}`);
+              navigate(`/${routes.details}${pokemon.name}`);
             }}
             name={pokemon.name}
             img={pokemon.img}

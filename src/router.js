@@ -5,15 +5,16 @@ import fetchPokemonDetails from "./logic/fetchPokemonDetails";
 import fetchPokemons from "./logic/fetchPokemons";
 import Nav from "./components/Nav";
 import ErrorMessage from "./components/ErrorMessage";
-
-
+import PokemonsComprisonPage from "./pages/PokemonsComprisonPage";
+export const routes = { pokemons: "pokemons", details: "details/", comparison: "comparison/" }
 export const router = createBrowserRouter(
 
 
     createRoutesFromElements(
         <Route path="/" element={<Nav />} errorElement={<ErrorMessage message={"test"} />}>
-            <Route path="pokemon" element={<PokemonsListPage />} loader={fetchPokemons} />
-            <Route path="details/:name" element={<PokemonDetailsPage />} loader={({ params }) => fetchPokemonDetails(params.name)} />
+            <Route path="pokemons" element={<PokemonsListPage />} loader={fetchPokemons} />
+            <Route path="details/:name/:name2" element={<PokemonDetailsPage />} loader={({ params }) => fetchPokemonDetails(params.name)} />
+            <Route path="comparison/:name1/:name2" element={<PokemonsComprisonPage />} />
         </Route>
     )
 )

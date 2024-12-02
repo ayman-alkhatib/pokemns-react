@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-
+import { routes } from "../router";
 function Nav() {
   return (
     <>
@@ -9,7 +9,7 @@ function Nav() {
         </div>
         <ul>
           <li>
-            <Link to="/pokemon">pokemonPage</Link>
+            <Link to={routes.pokemons}>pokemonsPage</Link>
           </li>
         </ul>
       </nav>
