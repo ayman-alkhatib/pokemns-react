@@ -1,8 +1,8 @@
+import styles from "./StatsProgressList.module.css";
 import ProgressBar from "./ProgressBar";
-
 function StatsProgressList({ detailsData }) {
   return (
-    <ul className="stats-list">
+    <ul className={styles.statsList}>
       {detailsData.stats.map((stat) => (
         <li key={stat.statName}>
           <ProgressBar

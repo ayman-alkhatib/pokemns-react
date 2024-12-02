@@ -1,3 +1,4 @@
+import styles from "./PokemonDetailsPage.module.css";
 import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import { typesColors } from "../typesColors";
 import { data } from "../logic/fetchPokemons";
@@ -5,7 +6,8 @@ import Loading from "../components/Loading";
 import StatsProgressList from "../components/StatsProgressList";
 import PokemonsList from "../components/PokemonsList";
 import { routes } from "../router";
-
+import PokemonDetailsText from "../components/PokemonDetailsText";
+import PokemonImage from "../components/PokemonImage";
 function PokemonDetailsPage() {
   const detailsData = useLoaderData();
   const navigation = useNavigation();
@@ -21,26 +23,17 @@ function PokemonDetailsPage() {
   return (
     <>
       <div
-        className="details-page-container"
+        className={styles.detailsPageContainer}
         style={{ backgroundColor: `${typesColors[detailsData.type]}` }}
       >
-        <div className="pokemon-details">
-          <div className="image">
-            <img src={detailsData.img} alt={detailsData.name} />
-          </div>
-          <div className="details">
-            <div className="details-text">
-              <h2> {detailsData.name}</h2>
-              <ul>
-                <li>height: {detailsData.height}</li>
-                <li>weight: {detailsData.weight}</li>
-                <li>type: {detailsData.type} </li>
-              </ul>
-            </div>
+        <div className={styles.pokemonDetails}>
+          <PokemonImage detailsData={detailsData} />
+          <div className={styles.pokemonDetails}>
+            <PokemonDetailsText detailsData={detailsData} />
             <StatsProgressList detailsData={detailsData} />
           </div>
         </div>
-        <div className="pokemons-compare-list">
+        <div className={styles.pokemonsCompareList}>
           <PokemonsList data={data} clickFn={handleCardClickFunciton} />
         </div>
       </div>

@@ -1,0 +1,26 @@
+.detailsText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detailsText h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+.detailsText ul {
+    list-style: none;
+    font-size: 25px;
+    display: flex;
+    gap: 50px;
+    color: #ddd;
+
+}
+
+.detailsText ul li {
+    background-color: #f4ac1c;
+    padding: 10px 20px;
+    border-radius: 40px;
+}

@@ -1,10 +1,11 @@
+import styles from "./Nav.module.css";
 import { Link, Outlet } from "react-router-dom";
 import { routes } from "../router";
 function Nav() {
   return (
     <>
       <nav>
-        <div className="logo">
+        <div className={styles.logo}>
           <img src="https://i.postimg.cc/ZngPsmf6/logo.png" alt="" />
         </div>
         <ul>
@@ -17,5 +18,4 @@ function Nav() {
     </>
   );
 }
-
 export default Nav;
