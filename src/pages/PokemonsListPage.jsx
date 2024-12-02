@@ -1,6 +1,6 @@
 import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
-import PokemonCard from "../components/PokemonCard.jsx";
 import Loading from "../components/Loading.jsx";
+import PokemonsList from "../components/PokemonsList.jsx";
 import { routes } from "../router.js";
 
 function PokemonsListPage() {
@@ -9,20 +9,13 @@ function PokemonsListPage() {
   const navigate = useNavigate();
 
   if (navigation.state === "loading") return <Loading />;
+
+  function handleCardClickFunciton(PokemonName) {
+    navigate(`/${routes.details}${PokemonName}`);
+  }
   return (
     <div className="pokemon-list">
-      {data.map((pokemon) => {
-        return (
-          <PokemonCard
-            clickFn={(name) => {
-              navigate(`/${routes.details}${pokemon.name}`);
-            }}
-            name={pokemon.name}
-            img={pokemon.img}
-            key={pokemon.name}
-          />
-        );
-      })}
+      <PokemonsList data={data} clickFn={handleCardClickFunciton} />
     </div>
   );
 }

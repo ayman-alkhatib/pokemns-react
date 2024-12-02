@@ -1,16 +1,23 @@
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import { typesColors } from "../typesColors";
-import ProgressBar from "../components/ProgressBar";
 import { data } from "../logic/fetchPokemons";
-import PokemonCard from "../components/PokemonCard";
 import Loading from "../components/Loading";
-import { routes } from "../router";
 import StatsProgressList from "../components/StatsProgressList";
+import PokemonsList from "../components/PokemonsList";
+import { routes } from "../router";
+
 function PokemonDetailsPage() {
   const detailsData = useLoaderData();
   const navigation = useNavigation();
+  const navigate = useNavigate();
 
   if (navigation.state === "loading") return <Loading />;
+
+  function handleCardClickFunciton(name) {
+    const firstPokemonName = detailsData.name;
+    navigate(`/${routes.comparison}${firstPokemonName}/${name}`);
+  }
+
   return (
     <>
       <div
@@ -34,15 +41,7 @@ function PokemonDetailsPage() {
           </div>
         </div>
         <div className="pokemons-compare-list">
-          {data.map((pokemon) => {
-            return (
-              <PokemonCard
-                name={pokemon.name}
-                img={pokemon.img}
-                key={pokemon.name}
-              />
-            );
-          })}
+          <PokemonsList data={data} clickFn={handleCardClickFunciton} />
         </div>
       </div>
     </>
