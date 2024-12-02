@@ -4,6 +4,8 @@ import ProgressBar from "../components/ProgressBar";
 import { data } from "../logic/fetchPokemons";
 import PokemonCard from "../components/PokemonCard";
 import Loading from "../components/Loading";
+import { routes } from "../router";
+import StatsProgressList from "../components/StatsProgressList";
 function PokemonDetailsPage() {
   const detailsData = useLoaderData();
   const navigation = useNavigation();
@@ -28,18 +30,7 @@ function PokemonDetailsPage() {
                 <li>type: {detailsData.type} </li>
               </ul>
             </div>
-            <ul className="stats-list">
-              {detailsData.stats.map((stat) => (
-                <li key={stat.statName}>
-                  <ProgressBar
-                    statName={stat.statName}
-                    progress={stat.baseStat}
-                    color={"red"}
-                    maxValue={stat.maxValue}
-                  />
-                </li>
-              ))}
-            </ul>
+            <StatsProgressList detailsData={detailsData} />
           </div>
         </div>
         <div className="pokemons-compare-list">
