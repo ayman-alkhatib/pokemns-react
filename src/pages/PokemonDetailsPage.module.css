@@ -49,3 +49,28 @@
     flex-direction: column;
     align-items: center;
 }
+
+@media screen and (max-width: 1240px) {
+
+
+    .pokemonsCompareList {
+        grid-template-columns: repeat(auto-fit, 250px);
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .detailsPageContainer {
+        flex-direction: column;
+        height: auto;
+        overflow: visible;
+        padding-top: 100px;
+    }
+
+    .pokemonsCompareList {
+        width: -webkit-fill-available;
+        justify-content: center;
+        height: auto;
+        overflow-y: visible;
+        padding-right: 0;
+    }
+}

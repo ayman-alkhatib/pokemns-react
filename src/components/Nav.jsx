@@ -1,7 +1,8 @@
 import styles from "./Nav.module.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, redirect } from "react-router-dom";
 import { routes } from "../router";
 function Nav() {
+  // <redirect from="/" to="searchDashboard" />;
   return (
     <>
       <nav>
