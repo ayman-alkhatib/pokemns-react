@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
+import { createHashRouter, createRoutesFromElements, Route } from "react-router-dom";
 import PokemonsListPage from "./pages/PokemonsListPage";
 import PokemonDetailsPage from "./pages/PokemonDetailsPage";
 import PokemonsComprisonPage from "./pages/PokemonsComprisonPage";
@@ -10,8 +10,7 @@ import fetchComparisonData from "./logic/fetchComparisonData"
 
 export const routes = { pokemons: "/", details: "details/", comparison: "comparison/" }
 
-export const router = createBrowserRouter(
-
+export const router = createHashRouter(
 
     createRoutesFromElements(
         <Route path="/" element={<Nav />} errorElement={<ErrorMessage message={"test"} />}>
