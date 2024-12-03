@@ -12,3 +12,13 @@
     gap: 20px;
     padding-bottom: 20px;
 }
+
+@media screen and (max-width: 440px) {
+    .statsList li {
+        /* display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding-bottom: 20px; */
+        flex-direction: column;
+    }
+}
