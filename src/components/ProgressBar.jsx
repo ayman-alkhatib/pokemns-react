@@ -1,12 +1,13 @@
+import styles from "./ProgressBar.module.css";
 function ProgressBar({ statName, progress, color, maxValue }) {
   return (
     <>
-      <span className="stat-name">
+      <span>
         {statName} {progress}/{maxValue}
       </span>
-      <div className="progress-bar">
+      <div className={styles.progressBar}>
         <div
-          className="progress"
+          className={styles.progress}
           style={{
             width: `${(progress / maxValue) * 100}%`,
             backgroundColor: color,

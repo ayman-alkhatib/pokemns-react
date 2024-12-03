@@ -1,57 +1,40 @@
-import { useLoaderData, useNavigation } from "react-router-dom";
+import styles from "./PokemonDetailsPage.module.css";
+import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import { typesColors } from "../typesColors";
-import ProgressBar from "../components/ProgressBar";
 import { data } from "../logic/fetchPokemons";
-import PokemonCard from "../components/PokemonCard";
 import Loading from "../components/Loading";
+import StatsProgressList from "../components/StatsProgressList";
+import PokemonsList from "../components/PokemonsList";
+import { routes } from "../router";
+import PokemonDetailsText from "../components/PokemonDetailsText";
+import PokemonImage from "../components/PokemonImage";
 function PokemonDetailsPage() {
   const detailsData = useLoaderData();
   const navigation = useNavigation();
+  const navigate = useNavigate();
 
   if (navigation.state === "loading") return <Loading />;
+
+  function handleCardClickFunciton(name) {
+    const firstPokemonName = detailsData.name;
+    navigate(`/${routes.comparison}${firstPokemonName}/${name}`);
+  }
+
   return (
     <>
       <div
-        className="details-page-container"
+        className={styles.detailsPageContainer}
         style={{ backgroundColor: `${typesColors[detailsData.type]}` }}
       >
-        <div className="pokemon-details">
-          <div className="image">
-            <img src={detailsData.img} alt={detailsData.name} />
-          </div>
-          <div className="details">
-            <div className="details-text">
-              <h2> {detailsData.name}</h2>
-              <ul>
-                <li>height: {detailsData.height}</li>
-                <li>weight: {detailsData.weight}</li>
-                <li>type: {detailsData.type} </li>
-              </ul>
-            </div>
-            <ul className="stats-list">
-              {detailsData.stats.map((stat) => (
-                <li key={stat.statName}>
-                  <ProgressBar
-                    statName={stat.statName}
-                    progress={stat.baseStat}
-                    color={"red"}
-                    maxValue={stat.maxValue}
-                  />
-                </li>
-              ))}
-            </ul>
+        <div className={styles.pokemonDetails}>
+          <PokemonImage detailsData={detailsData} />
+          <div className={styles.pokemonDetails}>
+            <PokemonDetailsText detailsData={detailsData} />
+            <StatsProgressList detailsData={detailsData} />
           </div>
         </div>
-        <div className="pokemons-compare-list">
-          {data.map((pokemon) => {
-            return (
-              <PokemonCard
-                name={pokemon.name}
-                img={pokemon.img}
-                key={pokemon.name}
-              />
-            );
-          })}
+        <div className={styles.pokemonsCompareList}>
+          <PokemonsList data={data} clickFn={handleCardClickFunciton} />
         </div>
       </div>
     </>

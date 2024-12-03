@@ -1,0 +1,73 @@
+.comprisonPage .pokemonsSection {
+    display: flex;
+    height: calc(100vb - 115px);
+    justify-content: space-between;
+    gap: 340px;
+}
+
+.leftSide {
+    background-color: blue;
+    position: relative;
+    flex: 1;
+    display: flex;
+}
+
+.rightSide {
+    background-color: brown;
+    position: relative;
+    display: flex;
+    flex: 1;
+
+}
+
+.leftSide::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: calc((100vb - 115px)/2) 0 calc((100vb - 115px)/2) 300px;
+    border-color: transparent transparent transparent blue;
+    transform: translateY(-50%) translateX(100%);
+    z-index: 1;
+}
+
+.rightSide::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: calc((100vb - 115px)/2) 0 calc((100vb - 115px)/2) 300px;
+    border-color: brown brown brown transparent;
+    z-index: 11;
+    transform: translateY(-50%) translateX(-100%);
+}
+
+.leftSide>div,
+.rightSide>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 auto;
+    padding-bottom: 150px;
+}
+
+
+.comparisonSection {
+    display: flex;
+    height: calc(100vb - 115px);
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 80px 0;
+}
+
+.comparisonSection>div {
+    width: 80%;
+}

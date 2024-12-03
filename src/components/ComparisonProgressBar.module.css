@@ -1,0 +1,51 @@
+.progressBar {
+    background-color: #ddd;
+    width: 80%;
+    height: 35px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+}
+
+.firstPokemonProgress {
+    position: absolute;
+    left: 0;
+}
+
+.secondPokemonProgress {
+    position: absolute;
+    right: 0;
+}
+
+.firstPokemonProgress,
+.secondPokemonProgress {
+    height: 100%;
+    display: inline-block;
+}
+
+.statProgress {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.statProgress>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+}
+
+.statName {
+    font-size: 30px;
+    text-align: center;
+}
+
+
+.firstProgressText,
+.secondProgressText {
+    font-size: 30px;
+    border-radius: 25px;
+    padding: 10px 20px;
+}

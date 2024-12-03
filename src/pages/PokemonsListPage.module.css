@@ -1,0 +1,10 @@
+.pokemonList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 50px;
+    gap: 50px;
+    min-height: 100vb;
+    background-image: url("../media/image.png");
+}
