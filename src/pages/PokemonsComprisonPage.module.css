@@ -55,7 +55,7 @@
     align-items: center;
     justify-content: flex-end;
     margin: 0 auto;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
 }
 
 
@@ -70,4 +70,38 @@
 
 .comparisonSection>div {
     width: 80%;
+}
+
+@media screen and (max-width: 1160px) {
+    .comprisonPage .pokemonsSection {
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 350px;
+        height: fit-content;
+    }
+
+    .leftSide {
+        padding-top: 50px;
+    }
+
+    .leftSide::after {
+        top: 100%;
+        left: 0;
+        border-width: 300px calc(100vw /2) 0;
+        border-color: blue transparent transparent transparent;
+        transform: translateY(0) translateX(0);
+    }
+
+    .rightSide {
+        padding-top: 50px;
+    }
+
+
+    .rightSide::after {
+        top: 0;
+        left: 0;
+        border-width: 300px calc(100vw /2) 0;
+        border-color: transparent brown brown brown;
+        transform: translateY(-100%) translateX(0);
+    }
 }
